@@ -1,0 +1,164 @@
+<%- include('../partials/head')%>
+<link rel="stylesheet" href="/new.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-red-100 flex flex-col">
+    <%- include('../partials/nav')%>
+    <div class="flex flex-1 flex-col items-center justify-center text-center px-4">
+       
+
+        <!-- Centered Slideshow Section -->
+        <div class="carousel-container fade-in-up fade-in-up-delay-1">
+          <div class="carousel-slide active">
+            <img src="/images/image1.jfif" alt="Home 1">
+            <div class="carousel-caption">Find your dream stay in beautiful locations</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="/images/image2.jpg" alt="Home 2">
+            <div class="carousel-caption">Book instantly & securely with Staynest</div>
+          </div>
+          <div class="carousel-slide">
+            <img src="/images/images3.jpg" alt="Home 3">
+            <div class="carousel-caption">Host your property & earn extra income</div>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prev-slide">&#8592;</button>
+            <button class="carousel-btn" id="next-slide">&#8594;</button>
+          </div>
+          <div class="carousel-dots">
+            <span class="carousel-dot active"></span>
+            <span class="carousel-dot"></span>
+            <span class="carousel-dot"></span>
+          </div>
+        </div>
+
+        <!-- Hero Section -->
+          <h1 class="text-5xl sm:text-6xl font-extrabold text-pink-600 mb-6 drop-shadow-lg fade-in-up">
+            Welcome to Staynest
+        </h1>
+        
+        <p class="text-xl sm:text-2xl text-gray-700 mb-8 max-w-2xl mx-auto fade-in-up fade-in-up-delay-1">
+            Discover, book, and manage your dream stays with ease. Staynest brings you the best homes, seamless booking, and secure payments—all in one place.
+        </p>
+
+        <!-- Feature Cards -->
+        <div class="flex flex-wrap justify-center gap-8 mb-12">
+            <div class="bg-white/80 rounded-2xl shadow-lg p-6 w-72 flex flex-col items-center hover:scale-105 transition fade-in-up fade-in-up-delay-1">
+                <svg class="w-12 h-12 text-pink-400 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 10l9-7 9 7v7a2 2 0 01-2 2h-2a2 2 0 01-2-2V12H9v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-7z"/>
+                </svg>
+                <h3 class="font-bold text-lg text-pink-600 mb-2">Browse Unique Homes</h3>
+                <p class="text-gray-600">Explore a curated list of beautiful homes in amazing locations.</p>
+            </div>
+            <div class="bg-white/80 rounded-2xl shadow-lg p-6 w-72 flex flex-col items-center hover:scale-105 transition fade-in-up fade-in-up-delay-2">
+                <svg class="w-12 h-12 text-yellow-400 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 16v-4"/>
+                </svg>
+                <h3 class="font-bold text-lg text-yellow-600 mb-2">Easy Booking</h3>
+                <p class="text-gray-600">Book your favorite home in just a few clicks with instant confirmation.</p>
+            </div>
+            <div class="bg-white/80 rounded-2xl shadow-lg p-6 w-72 flex flex-col items-center hover:scale-105 transition fade-in-up fade-in-up-delay-3">
+                <svg class="w-12 h-12 text-green-400 mb-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17 9V7a5 5 0 00-10 0v2a2 2 0 00-2 2v7a2 2 0 002 2h10a2 2 0 002-2v-7a2 2 0 00-2-2z"/>
+                </svg>
+                <h3 class="font-bold text-lg text-green-600 mb-2">Secure Payments</h3>
+                <p class="text-gray-600">Pay safely online with integrated Razorpay and enjoy peace of mind.</p>
+            </div>
+        </div>
+
+        <!-- Animated Stats Section -->
+        <div class="max-w-4xl mx-auto mb-12 fade-in-up fade-in-up-delay-2">
+            <h2 class="text-2xl font-bold text-pink-600 mb-6">Staynest in Numbers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                <div>
+                    <span class="text-4xl font-extrabold text-pink-500 mb-2 block stat-animate" data-target="1200">0</span>
+                    <span class="font-semibold text-gray-700">Homes Listed</span>
+                </div>
+                <div>
+                    <span class="text-4xl font-extrabold text-yellow-500 mb-2 block stat-animate" data-target="3500">0</span>
+                    <span class="font-semibold text-gray-700">Bookings Made</span>
+                </div>
+                <div>
+                    <span class="text-4xl font-extrabold text-green-500 mb-2 block stat-animate" data-target="1800">0</span>
+                    <span class="font-semibold text-gray-700">Happy Guests</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="max-w-4xl mx-auto mb-12 fade-in-up fade-in-up-delay-3">
+            <h2 class="text-2xl font-bold text-pink-600 mb-6">How It Works</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div class="bg-white/70 rounded-xl p-6 shadow flex flex-col items-center">
+                    <span class="text-3xl font-bold text-pink-500 mb-2">1</span>
+                    <span class="font-semibold mb-2">Sign Up or Login</span>
+                    <span class="text-gray-600 text-sm">Create your account or log in to get started.</span>
+                </div>
+                <div class="bg-white/70 rounded-xl p-6 shadow flex flex-col items-center">
+                    <span class="text-3xl font-bold text-yellow-500 mb-2">2</span>
+                    <span class="font-semibold mb-2">Find Your Stay</span>
+                    <span class="text-gray-600 text-sm">Browse and choose from a variety of homes.</span>
+                </div>
+                <div class="bg-white/70 rounded-xl p-6 shadow flex flex-col items-center">
+                    <span class="text-3xl font-bold text-green-500 mb-2">3</span>
+                    <span class="font-semibold mb-2">Book & Pay</span>
+                    <span class="text-gray-600 text-sm">Book instantly and pay securely online.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testimonials Section -->
+        <div class="max-w-4xl mx-auto mb-12 fade-in-up fade-in-up-delay-2">
+            <h2 class="text-2xl font-bold text-pink-600 mb-6">What Our Users Say</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <div class="bg-white/80 rounded-xl p-6 shadow">
+                    <p class="italic text-gray-700 mb-2">"Staynest made my vacation planning so easy and stress-free. Highly recommended!"</p>
+                    <span class="font-semibold text-pink-500">— Priya S.</span>
+                </div>
+                <div class="bg-white/80 rounded-xl p-6 shadow">
+                    <p class="italic text-gray-700 mb-2">"The payment process was smooth and I found the perfect home for my family."</p>
+                    <span class="font-semibold text-pink-500">— Rahul M.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Host Promotion -->
+        <div class="max-w-2xl mx-auto mb-12 fade-in-up fade-in-up-delay-3">
+            <div class="bg-gradient-to-r from-yellow-100 via-pink-100 to-red-100 rounded-2xl shadow-lg p-8 flex flex-col items-center">
+                <h2 class="text-xl font-bold text-pink-600 mb-2">Become a Host</h2>
+                <p class="text-gray-700 mb-4">Have a property to share? List your home on Staynest and earn extra income!</p>
+                <% if (!isLoggedIn) { %>
+                    <a href="/signup" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-6 rounded-full shadow transition">
+                        Sign Up to List Your Home
+                    </a>
+                <% } else if (user && user.userType === 'host') { %>
+                    <a href="/host/register" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-6 rounded-full shadow transition">
+                        List Your Home
+                    </a>
+                <% } else { %>
+                    <a href="/signup" class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-6 rounded-full shadow transition">
+                        Become a Host
+                    </a>
+                <% } %>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <% if (isLoggedIn) { %>
+            <a href="/home_list" class="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg transition animate-pulse fade-in-up fade-in-up-delay-2">
+                Get Started
+            </a>
+        <% } else { %>
+            <a href="/login" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 px-8 rounded-full text-xl shadow-lg transition animate-pulse fade-in-up fade-in-up-delay-2">
+                Login to Get Started
+            </a>
+        <% } %>
+    </div>
+
+    <%- include('../partials/footer')%>
+
+    <!-- Animated Stats Script & Slideshow Script -->
+    <script src="/new.js">
+    
+    </script>
+</body>
+</html>

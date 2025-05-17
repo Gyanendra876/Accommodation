@@ -1,0 +1,10 @@
+For Guest login 
+email-harshsinha06y@gmail.com
+password-Harsh@123
+
+email-harshsinha06z@gmail.com
+password-Harsh@123
+
+For host login
+email-harshsinha06n@gmail.com
+password-Harsh@123

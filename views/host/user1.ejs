@@ -1,0 +1,37 @@
+<%- include('../partials/head')%>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-red-100 flex flex-col">
+    <%- include('../partials/nav')%>
+    <div class="flex flex-1 items-center justify-center py-8">
+        <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-md">
+            <h1 class="text-3xl font-bold text-center text-pink-600 mb-6 flex items-center justify-center">
+                <!-- Home Add Icon -->
+                <svg class="w-7 h-7 mr-2 text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                </svg>
+                Add New Home
+            </h1>
+            <form action="/host/add-home" method="POST" class="space-y-4">
+                <input type="text" name="houseName" placeholder="Enter the name of your house" required
+                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
+                <input type="text" name="pricepernight" placeholder="Enter the price" required
+                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
+                <input type="text" name="Location" placeholder="Enter the Location" required
+                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
+                <input type="text" name="Rating" placeholder="Enter the Rating" required
+                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
+                <input type="text" name="photourl" placeholder="Enter the photo URL" required
+                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
+                <button type="submit"
+                    class="w-full flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded transition">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+                    </svg>
+                    Submit
+                </button>
+            </form>
+        </div>
+    </div>
+    <%- include('../partials/footer')%>
+</body>
+</html>

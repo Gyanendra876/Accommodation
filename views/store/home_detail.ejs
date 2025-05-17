@@ -1,0 +1,213 @@
+<%- include('../partials/head')%>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-red-100 flex flex-col">
+    <%- include('../partials/nav')%>
+    <div class="container mx-auto flex-1 px-4 py-8">
+        <div class="flex flex-col md:flex-row gap-12">
+            <!-- Left: Main Info, What this place offers, Extra Activities -->
+            <div class="w-full md:w-1/2 flex flex-col items-start">
+                <img src="<%= home.photourl %>" alt="House Image" class="rounded-2xl shadow-xl w-full max-w-xl h-64 object-cover mb-6 border-4 border-pink-200" />
+                <h1 class="text-4xl font-extrabold text-pink-600 mb-2 flex items-center">
+                    <svg class="w-8 h-8 mr-2 text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0h6"></path>
+                    </svg>
+                    <%= home.houseName %>
+                </h1>
+                <div class="flex flex-wrap gap-4 mb-4">
+                    <span class="flex items-center text-lg text-gray-700 font-semibold bg-yellow-100 px-3 py-1 rounded-full">
+                        <svg class="w-5 h-5 text-yellow-400 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 17.75L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                        </svg>
+                        <%= home.Rating %>
+                    </span>
+                    <span class="flex items-center text-lg text-gray-700 font-semibold bg-green-100 px-3 py-1 rounded-full">
+                        <svg class="w-5 h-5 text-green-400 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zm0 0V4m0 16v-4"/>
+                        </svg>
+                        ₹<%= home.pricepernight %> / night
+                    </span>
+                    <span class="flex items-center text-lg text-gray-700 font-semibold bg-pink-100 px-3 py-1 rounded-full">
+                        <svg class="w-5 h-5 text-pink-400 mr-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4.5 8-10V7a4 4 0 00-8-3 4 4 0 00-8 3v5c0 5.5 8 10 8 10z"/>
+                        </svg>
+                        <%= home.Location %>
+                    </span>
+                </div>
+                <div class="flex items-center mb-4">
+                    <%- include('../partials/favourite')%>
+                </div>
+                <!-- Razorpay Book Now Button -->
+                 <form action="/bookings" method="POST" style="display:inline;">
+                  <input type="hidden" name="id" value="<%= home._id %>">
+                  <button 
+                   type="submit"
+                   class="ml-4 flex items-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded transition">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <rect width="18" height="18" x="3" y="4" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round"></rect>
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M16 2v4M8 2v4M3 10h18"></path>
+                    </svg>
+                    Book
+                    </button>
+                    </form>
+                <!-- What this place offers -->
+                <h3 class="text-xl font-semibold text-pink-600 mt-8 mb-2">What this place offers:</h3>
+                <ul class="mb-6 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-700 text-base">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Free Wi-Fi
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Fully equipped kitchen
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Private parking
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        24/7 support
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Family & pet friendly
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-green-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                        </svg>
+                        Local experiences & tours
+                    </li>
+                </ul>
+                <!-- Extra Activities -->
+                <h3 class="text-xl font-semibold text-pink-600 mb-2">Extra Activities:</h3>
+                <ul class="mb-4 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 text-gray-700 text-base">
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 21h4m4 0h-4m0 0V3"/>
+                        </svg>
+                        Guided city tours
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 21h4m4 0h-4m0 0V3"/>
+                        </svg>
+                        Adventure sports nearby
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 21h4m4 0h-4m0 0V3"/>
+                        </svg>
+                        Local food tasting
+                    </li>
+                    <li class="flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-blue-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8 21h4m4 0h-4m0 0V3"/>
+                        </svg>
+                        Cultural workshops
+                    </li>
+                </ul>
+            </div>
+            <!-- Right: Guest Reviews and Map -->
+            <div class="w-full md:w-1/2 flex flex-col gap-8">
+                <!-- Guest Reviews for What This Place Offers & Extra Activities -->
+                 <div class="flex justify-center items-start mb-6">
+                    <iframe
+                        style="border:0; width:100%; height:256px; max-width:600px; border-radius: 16px; box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);"
+                        loading="lazy"
+                        allowfullscreen
+                        src="https://www.google.com/maps?q=<%=home.Location%>&output=embed">
+                    </iframe>
+                </div>
+                <div class=" p-6 mb-8 mt-52">
+                    <h3 class="text-2xl font-bold text-yellow-600 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2h5"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Guest Reviews
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="border-b pb-3">
+                            <div class="flex items-center mb-1">
+                                <span class="font-semibold text-pink-600 mr-2">Amit S.</span>
+                                <span class="text-yellow-400">★★★★★</span>
+                            </div>
+                            <div class="text-gray-700">
+                                The free Wi-Fi and kitchen made our stay super comfortable. We loved the guided city tour—our kids had a blast!
+                            </div>
+                        </div>
+                        <div class="border-b pb-3">
+                            <div class="flex items-center mb-1">
+                                <span class="font-semibold text-pink-600 mr-2">Priya K.</span>
+                                <span class="text-yellow-400">★★★★☆</span>
+                            </div>
+                            <div class="text-gray-700">
+                                Adventure sports were thrilling! The local food tasting was a highlight. Would recommend for families and friends.
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center mb-1">
+                                <span class="font-semibold text-pink-600 mr-2">Rahul D.</span>
+                                <span class="text-yellow-400">★★★★★</span>
+                            </div>
+                            <div class="text-gray-700">
+                                Loved the cultural workshops and the pet-friendly environment. Hosts were very helpful and responsive.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Map -->
+            </div>
+        </div>
+        <!-- About This Place Section at the bottom -->
+        <!-- About & Things to Know Section -->
+        <div class="w-full mt-12 flex flex-col md:flex-row gap-8">
+            <!-- About This Place -->
+            <div class="md:w-1/2 w-full border-l-4 border-pink-400 pl-6 py-6 bg-white/70 rounded-lg shadow-sm">
+                <h2 class="text-3xl font-bold text-pink-500 mb-3 flex items-center">
+                    <svg class="w-7 h-7 mr-2 text-yellow-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z"/>
+                    </svg>
+                    About This Place
+                </h2>
+                <p class="text-gray-700 mb-3 text-lg leading-relaxed">
+                    Welcome to Staynest! Our platform connects you with unique homes and experiences around the world. Whether you’re looking for a cozy retreat, a family-friendly villa, or a modern city apartment, you’ll find the perfect stay here.
+                </p>
+                <div class="text-gray-600 text-sm italic">
+                    Discover more with Staynest – your gateway to memorable stays and unique adventures!
+                </div>
+            </div>
+            <!-- Things to Know -->
+            <div class="md:w-1/2 w-full border-l-4 border-yellow-400 pl-6 py-6 bg-white/70 rounded-lg shadow-sm">
+                <h2 class="text-3xl font-bold text-yellow-500 mb-3 flex items-center">
+                    <svg class="w-7 h-7 mr-2 text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3M3 11h18M5 19h14a2 2 0 002-2V7H3v10a2 2 0 002 2z"/>
+                    </svg>
+                    Things to Know
+                </h2>
+                <ul class="text-gray-700 text-base space-y-2 list-disc list-inside">
+                    <li><strong>Guest requirements:</strong> Guests aged 18 and over can attend, up to 4 guests in total.</li>
+                    <li><strong>Activity level:</strong> Moderate. Skill level is beginner.</li>
+                    <li><strong>What to bring:</strong> Water for drinking and your camera.</li>
+                    <li><strong>Accessibility:</strong> Message your host for details.</li>
+                    <li><strong>Cancellation policy:</strong> Cancel at least 1 day before the start time for a full refund.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <%- include('../partials/footer')%>
+    <!-- Razorpay scripts -->
+    
+</body>
+</html>
