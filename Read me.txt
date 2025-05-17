@@ -1,4 +1,4 @@
-# Airbnb Accommodation Booking Project
+#Staynest Accommodation Booking Project
 
 ## Overview
 This is a Node.js-based accommodation booking platform inspired by Airbnb. It allows users to register as guests or hosts, browse and book properties, and manage listings. The project uses Express.js, MongoDB (with Mongoose), EJS templating, session management, and payment integration with Razorpay.
