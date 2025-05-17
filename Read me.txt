@@ -1,10 +1,114 @@
-For Guest login 
-email-harshsinha06y@gmail.com
-password-Harsh@123
+# Airbnb Accommodation Booking Project
 
-email-harshsinha06z@gmail.com
-password-Harsh@123
+## Overview
+This is a Node.js-based accommodation booking platform inspired by Airbnb. It allows users to register as guests or hosts, browse and book properties, and manage listings. The project uses Express.js, MongoDB (with Mongoose), EJS templating, session management, and payment integration with Razorpay.
 
-For host login
-email-harshsinha06n@gmail.com
-password-Harsh@123
+---
+
+## Features
+
+### User Functionality
+- **Guest Registration & Login:**  
+  Guests can sign up, log in, and browse available homes.
+- **Browse Listings:**  
+  View all available homes with details such as name, price per night, location, rating, photos, and description.
+- **Book Accommodation:**  
+  Guests can book homes and make payments via Razorpay.
+- **View Bookings:**  
+  Guests can view their booking history.
+
+### Host Functionality
+- **Host Registration & Login:**  
+  Hosts can sign up and log in to manage their listings.
+- **Add New Listing:**  
+  Hosts can add new homes with details and images.
+- **Edit/Delete Listing:**  
+  Hosts can update or remove their property listings.
+- **View Bookings:**  
+  Hosts can see bookings for their properties.
+
+### Common Functionality
+- **Authentication:**  
+  Secure login and registration for both guests and hosts.
+- **Session Management:**  
+  User sessions are managed securely using MongoDB-backed sessions.
+- **Payment Integration:**  
+  Payments are handled securely via Razorpay.
+- **Responsive UI:**  
+  The frontend is built with EJS and styled using Tailwind CSS.
+
+---
+
+## Technologies Used
+
+- Node.js
+- Express.js
+- MongoDB & Mongoose
+- EJS (Embedded JavaScript Templates)
+- Tailwind CSS
+- Razorpay (for payments)
+- express-session & connect-mongodb-session
+- dotenv (for environment variables)
+
+---
+
+## Getting Started
+
+1. **Clone the repository**
+2. **Install dependencies**
+   ```
+   npm install
+   ```
+3. **Set up your `.env` file** in the project root:
+   ```
+   DB_PATH=your_mongodb_connection_string
+   SESSION_SECRET=your_secret_here
+   ```
+4. **Start MongoDB** (locally or use MongoDB Atlas)
+5. **Run the server**
+   ```
+   npm start
+   ```
+6. **Visit** https://accommodation-1n5g.onrender.com in your browser.
+
+---
+
+## Test Accounts
+
+### Guest Login
+- **Email:** harshsinha06y@gmail.com  
+  **Password:** Harsh@123
+
+- **Email:** harshsinha06z@gmail.com  
+  **Password:** Harsh@123
+
+### Host Login
+- **Email:** harshsinha06n@gmail.com  
+  **Password:** Harsh@123
+
+---
+
+## Folder Structure
+
+- `/models` - Mongoose models
+- `/routes` - Express route handlers
+- `/controllers` - Business logic
+- `/views` - EJS templates
+- `/public` - Static assets (CSS, images, JS)
+
+---
+
+## Notes
+
+- Make sure to keep your `.env` file secure and **never commit it to version control**.
+- For production, update your MongoDB URI and session secret.
+
+---
+
+## License
+
+ISC
+
+---
+
+**Developed by Harsh**
