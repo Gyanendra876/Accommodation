@@ -1,8 +1,9 @@
+require('dotenv').config();
 const Razorpay = require('razorpay');
 
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_FkhYGi7Wa4Thcy', // Replace with your Razorpay key_id
-    key_secret: '249mNTT3iambLbJQ6jFRe38D' // Replace with your Razorpay key_secret
+    key_id: process.env.RAZORPAY_KEY_ID, // Now using env variable
+    key_secret: process.env.RAZORPAY_KEY_SECRET // Now using env variable
 });
 
 exports.createOrder = async (req, res) => {
