@@ -1,50 +1,89 @@
-<%- include('../partials/head')%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= pageTitle %></title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Optional: Custom small tweaks -->
+  <style>
+    svg { width: 22px; height: 22px; vertical-align: middle; }
+  </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-pink-100 via-yellow-100 to-red-100 flex flex-col">
-    <%- include('../partials/nav')%>
-    <div class="flex flex-1 items-center justify-center py-8">
-        <div class="bg-white bg-opacity-90 rounded-lg shadow-lg p-8 w-full max-w-md">
-            <h1 class="text-3xl font-bold text-center text-pink-600 mb-6 flex items-center justify-center">
-                <!-- Home Add/Edit Icon -->
-                <svg class="w-7 h-7 mr-2 text-pink-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                </svg>
-                <%= editing==false ? "Register" : "Edit"%> Your Home on Airbnb
-            </h1>
-            <form action="/host/<%=editing ? "edit-home" :"add-home" %>" method="POST" class="space-y-4">
-                <input type="text" name="houseName"
-                    value="<%= editing ? home.houseName : ""%>"
-                    placeholder="Enter the name of your house"
-                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
-                <input type="number" name="pricepernight"
-                    value="<%= editing ? home.pricepernight : "" %>"
-                    placeholder="Enter the price"
-                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
-                <input type="hidden" name="id" value="<%= editing ? home._id : "" %>">
-                <input type="text" name="Location"
-                    value="<%= editing ? home.Location : "" %>"
-                    placeholder="Enter the Location"
-                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
-                <input type="text" name="Rating"
-                    value="<%= editing ? home.Rating : "" %>"
-                    placeholder="Enter the Rating"
-                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
-                <input type="text" name="photourl"
-                    value="<%= editing ? home.photourl : "" %>"
-                    placeholder="Enter the photo URL"
-                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400" />
-                <textarea name="description" placeholder="Describe Your Home"
-                    class="w-full px-4 py-2 border border-pink-300 rounded focus:outline-none focus:ring-2 focus:ring-pink-400 resize-none"><%= editing ? home.description : "" %></textarea>
-                <button type="submit"
-                    class="w-full flex items-center justify-center bg-pink-500 hover:bg-pink-600 text-white font-semibold py-2 px-4 rounded transition">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
-                    </svg>
-                    <%= editing ? "Update" :"Add Home"%>
-                </button>
-            </form>
-        </div>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Sticky Navbar -->
+  <%- include('../partials/nav') %>
+
+  <!-- Main content -->
+  <main class="flex-grow flex justify-center px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white shadow-lg rounded-2xl w-full max-w-lg p-8 border border-gray-100">
+
+      <!-- Title -->
+      <h1 class="flex items-center justify-center gap-2 text-2xl sm:text-3xl font-bold text-gray-800 mb-8">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+        </svg>
+        <%= editing == false ? "Register" : "Edit" %> Your Home on Airbnb
+      </h1>
+
+      <!-- Form -->
+      <form action="/host/<%= editing ? "edit-home" : "add-home" %>" method="POST" class="space-y-5">
+
+        <!-- House Name -->
+        <input type="text" name="houseName"
+          value="<%= editing ? home.houseName : "" %>"
+          placeholder="Enter the name of your house"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none" />
+
+        <!-- Price -->
+        <input type="number" name="pricepernight"
+          value="<%= editing ? home.pricepernight : "" %>"
+          placeholder="Enter the price per night"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none" />
+
+        <!-- Hidden ID -->
+        <input type="hidden" name="id" value="<%= editing ? home._id : "" %>">
+
+        <!-- Location -->
+        <input type="text" name="Location"
+          value="<%= editing ? home.Location : "" %>"
+          placeholder="Enter the location"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none" />
+
+        <!-- Rating -->
+        <input type="text" name="Rating"
+          value="<%= editing ? home.Rating : "" %>"
+          placeholder="Enter the rating"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none" />
+
+        <!-- Photo URL -->
+        <input type="text" name="photourl"
+          value="<%= editing ? home.photourl : "" %>"
+          placeholder="Enter the photo URL"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none" />
+
+        <!-- Description -->
+        <textarea name="description" placeholder="Describe your home"
+          class="w-full p-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-pink-500 focus:border-pink-500 outline-none h-32 resize-none"><%= editing ? home.description : "" %></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit"
+          class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold py-3 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.02] transition-all duration-200">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/>
+          </svg>
+          <%= editing ? "Update" : "Add Home" %>
+        </button>
+
+      </form>
     </div>
-    <%- include('../partials/footer')%>
+  </main>
+
+  <!-- Footer -->
+  <%- include('../partials/footer') %>
 </body>
 </html>

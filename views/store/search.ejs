@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= pageTitle %></title>
+  <script src="https://cdn.tailwindcss.com"></script>
+ 
+</head>
+<body class="bg-gray-50">
+  <%- include('../partials/nav') %>
+
+  <div class="container mx-auto mt-10 px-4">
+    <h1 class="text-3xl font-semibold text-center mb-6">Search Homes</h1>
+
+    <!-- Search Form -->
+    <form action="/search" method="GET" class="flex flex-wrap gap-4 justify-center mb-10">
+      <input type="text" name="location" placeholder="Enter Location" class="border px-4 py-2 rounded w-40" />
+      <input type="number" name="minPrice" placeholder="Min Price" class="border px-4 py-2 rounded w-40" />
+      <input type="number" name="maxPrice" placeholder="Max Price" class="border px-4 py-2 rounded w-40" />
+      <input type="number" name="minRating" placeholder="Min Rating" class="border px-4 py-2 rounded w-40" />
+      <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Search</button>
+    </form>
+
+    <!-- Search Results -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <% if (Registration && Registration.length > 0) { %>
+        <% Registration.forEach(home => { %>
+          <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="<%= home.photourl %>" alt="Home Image" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h2 class="text-xl font-semibold mb-2"><%= home.houseName %></h2>
+              <p><strong>Location:</strong> <%= home.Location %></p>
+              <p><strong>Price:</strong> ₹<%= home.pricepernight %> / night</p>
+              <p><strong>Rating:</strong> ⭐ <%= home.Rating %></p>
+
+              <div class="mt-4 flex justify-between items-center">
+                <a href="/home_list/<%= home._id %>" class="text-blue-600 hover:underline">View Details</a>
+                <form action="/bookings" method="POST">
+                  <input type="hidden" name="id" value="<%= home._id %>">
+                  <button type="submit" class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Book</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="col-span-3 text-center text-gray-600">No homes found matching your filters.</p>
+      <% } %>
+    </div>
+  </div>
+
+  <%- include('../partials/footer') %>
+</body>
+</html>

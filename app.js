@@ -9,9 +9,10 @@ const { default: mongoose } = require('mongoose');
 const hostRouter = require("./routes/host");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
+const razorpayRoutes = require('./routes/razorpay');
 const rootdir = require("./util/rootdir");
 const errorCon = require("./controllers/error");
-const razorpayRoutes = require('./routes/razorpay');
+
 
 const DB_PATH = "mongodb+srv://harshsinha:SYYI3oAhWZaFZo99@cluster0.0tjinsk.mongodb.net/air?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -43,7 +44,7 @@ app.use((req, res, next) => {
 });
 
 // Routers and static files
-app.use(userRouter);
+app.use('/',userRouter);
 app.use('/host', hostRouter);
 app.use(authRouter);
 app.use(express.static(path.join(rootdir, 'public')));
@@ -52,7 +53,7 @@ app.use('/razorpay', razorpayRoutes);
 // Error handler (should be last)
 app.use(errorCon.geterror);
 
-const port = 4007;
+const port = 4009;
 
 mongoose.connect(DB_PATH).then(() => {
     app.listen(port, () => {

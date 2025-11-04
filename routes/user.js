@@ -8,10 +8,14 @@ userRouter.get("/home_list",homescontroller.getHomePage);
 userRouter.get("/favourite-list",homescontroller.getfavouritelist);
 userRouter.get("/bookings",homescontroller.getbookings);
 userRouter.post("/bookings",homescontroller.postbookings);
+userRouter.get("/search", homescontroller.searchHomes);
+userRouter.get("/recommended", homescontroller.getRecommendedHomes);
+
 userRouter.get("/home_list/:homeId",homescontroller.getdetails);
 userRouter.post("/favourite-list",homescontroller.postAddFavourites);
 userRouter.post("/favorites/delete/:homeId",homescontroller.postRemoveFromFavourite);
 userRouter.get('/booking/paid', homescontroller.markBookingPaid);
+
 
 
 module.exports=userRouter; 
